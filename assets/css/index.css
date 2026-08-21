@@ -44,7 +44,7 @@ nav {
 }
 nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .brand {
-  font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.25rem;
+  font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.35rem; 
   letter-spacing: 0.02em; color: var(--paper);
 }
 .brand span { color: var(--brass); }
