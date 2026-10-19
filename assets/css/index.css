@@ -1,14 +1,16 @@
 :root {
-  --ink: #0E1116;
-  --ink-2: #161B22;
-  --panel: #1B222C;
-  --line: #29323F;
-  --fog: #8A97A8;
-  --fog-2: #B9C3D0;
-  --paper: #EDF0F4;
-  --brass: #C7A66B;
-  --brass-dim: #9C8353;
-  --blueprint: #4C7CB0;
+  /* ARSEVO brand palette — sampled from assets/ARSEVO Engineering Brand Board.png */
+  --ink: #0D141B;
+  --ink-2: #121B24;
+  --panel: #18232E;
+  --line: #243240;
+  --fog: #8697A8;
+  --fog-2: #B5C3D0;
+  --paper: #EEF3F6;
+  --sky: #A5C8D9;
+  --steel: #6FA6C2;
+  --blue: #3482A6;
+  --blue-deep: #155D80;
   --radius: 4px;
 }
 
@@ -32,22 +34,19 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--brass);
+  color: var(--steel);
 }
 
 /* ---------- NAV ---------- */
 nav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(14,17,22,0.82);
+  background: rgba(13,20,27,0.82);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
 nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-.brand {
-  font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.35rem; 
-  letter-spacing: 0.02em; color: var(--paper);
-}
-.brand span { color: var(--brass); }
+.brand { display: inline-flex; align-items: center; line-height: 0; }
+.brand img { height: 30px; width: auto; display: block; }
 .nav-links { display: flex; gap: 34px; align-items: center; }
 .nav-links a {
   color: var(--fog-2); text-decoration: none; font-size: 0.9rem;
@@ -55,10 +54,10 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 }
 .nav-links a:hover { color: var(--paper); }
 .nav-links a.cta {
-  color: var(--ink); background: var(--brass);
+  color: #fff; background: linear-gradient(135deg, #207296, var(--blue-deep));
   padding: 9px 18px; border-radius: var(--radius); font-weight: 500;
 }
-.nav-links a.cta:hover { background: #d8ba82; }
+.nav-links a.cta:hover { color: #fff; background: linear-gradient(135deg, #2A7DA3, #1A6890); }
 @media (max-width: 640px) { .nav-links a:not(.cta) { display: none; } }
 
 /* ---------- HERO ---------- */
@@ -75,7 +74,7 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 }
 .hero .wrap { position: relative; }
 .hero-eyebrow { margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
-.hero-eyebrow .rule { height: 1px; width: 46px; background: var(--brass-dim); }
+.hero-eyebrow .rule { height: 1px; width: 46px; background: var(--blue); }
 h1 {
   font-family: 'Fraunces', serif;
   font-weight: 500;
@@ -85,23 +84,23 @@ h1 {
   max-width: 15ch;
   margin-bottom: 30px;
 }
-h1 em { font-style: italic; color: var(--brass); }
+h1 em { font-style: italic; color: var(--sky); }
 .hero-sub {
   font-size: 1.15rem; color: var(--fog-2); max-width: 54ch;
   margin-bottom: 40px; line-height: 1.62;
 }
 .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 .btn-primary {
-  background: var(--brass); color: var(--ink); text-decoration: none;
+  background: linear-gradient(135deg, #207296, var(--blue-deep)); color: #fff; text-decoration: none;
   padding: 14px 26px; border-radius: var(--radius); font-weight: 600;
   font-size: 0.95rem; transition: background 0.2s, transform 0.2s;
 }
-.btn-primary:hover { background: #d8ba82; transform: translateY(-1px); }
+.btn-primary:hover { background: linear-gradient(135deg, #2A7DA3, #1A6890); transform: translateY(-1px); }
 .btn-ghost {
   color: var(--fog-2); text-decoration: none; font-size: 0.95rem;
   padding: 14px 4px; border-bottom: 1px solid var(--line); transition: color 0.2s, border-color 0.2s;
 }
-.btn-ghost:hover { color: var(--paper); border-color: var(--brass); }
+.btn-ghost:hover { color: var(--paper); border-color: var(--steel); }
 
 .hero-meta {
   margin-top: 64px; display: flex; gap: 48px; flex-wrap: wrap;
@@ -109,7 +108,7 @@ h1 em { font-style: italic; color: var(--brass); }
 }
 .hero-meta div { max-width: 22ch; }
 .hero-meta .k {
-  font-family: 'IBM Plex Mono', monospace; color: var(--brass);
+  font-family: 'IBM Plex Mono', monospace; color: var(--steel);
   font-size: 0.85rem; margin-bottom: 6px;
 }
 .hero-meta .v { font-size: 0.86rem; color: var(--fog); }
@@ -121,7 +120,7 @@ h1 em { font-style: italic; color: var(--brass); }
   font-family: 'Fraunces', serif; font-size: clamp(1.35rem, 3vw, 1.9rem);
   line-height: 1.4; font-weight: 400; max-width: 40ch; color: var(--paper);
 }
-.thesis p b { color: var(--brass); font-weight: 500; }
+.thesis p b { color: var(--sky); font-weight: 500; }
 
 /* ---------- SECTION HEAD ---------- */
 .sec { padding: 96px 0; }
@@ -145,13 +144,13 @@ h1 em { font-style: italic; color: var(--brass); }
 .rung:hover { background: var(--ink-2); }
 .rung::before {
   content: ""; position: absolute; left: 0; top: 0; bottom: -1px; width: 2px;
-  background: var(--brass); transform: scaleY(0); transform-origin: top;
+  background: linear-gradient(var(--sky), var(--blue)); transform: scaleY(0); transform-origin: top;
   transition: transform 0.3s ease;
 }
 .rung:hover::before { transform: scaleY(1); }
 .rung-letter {
   font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 500;
-  color: var(--brass); line-height: 1; padding-left: 4px;
+  color: var(--steel); line-height: 1; padding-left: 4px;
 }
 .rung-body h3 {
   font-size: 1.18rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em;
@@ -160,7 +159,7 @@ h1 em { font-style: italic; color: var(--brass); }
 .rung-tag {
   display: inline-block; margin-top: 12px;
   font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--blueprint);
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky);
   border: 1px solid var(--line); padding: 3px 9px; border-radius: 2px;
 }
 @media (max-width: 560px) {
@@ -178,7 +177,7 @@ h1 em { font-style: italic; color: var(--brass); }
 }
 .pillar .num {
   font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
-  color: var(--brass); letter-spacing: 0.15em; margin-bottom: 22px; display: block;
+  color: var(--steel); letter-spacing: 0.15em; margin-bottom: 22px; display: block;
 }
 .pillar h3 {
   font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.55rem;
@@ -190,7 +189,7 @@ h1 em { font-style: italic; color: var(--brass); }
   font-size: 0.92rem; color: var(--fog); padding-left: 20px; position: relative;
 }
 .pillar li::before {
-  content: "—"; position: absolute; left: 0; color: var(--brass-dim);
+  content: "—"; position: absolute; left: 0; color: var(--blue);
 }
 
 /* ---------- CREDIBILITY ---------- */
@@ -203,7 +202,7 @@ h1 em { font-style: italic; color: var(--brass); }
 .cred p { color: var(--fog-2); margin-bottom: 16px; font-size: 1.02rem; line-height: 1.62; }
 .cred-facts { display: grid; gap: 0; border-top: 1px solid var(--line); }
 .fact { padding: 18px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
-.fact .f-k { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--brass); letter-spacing: 0.08em; }
+.fact .f-k { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--steel); letter-spacing: 0.08em; }
 .fact .f-v { font-size: 0.94rem; color: var(--fog-2); text-align: right; max-width: 24ch; }
 
 /* ---------- CTA / DIAGNOSTIC ---------- */
@@ -215,7 +214,7 @@ h1 em { font-style: italic; color: var(--brass); }
 }
 .diag-card::after {
   content: ""; position: absolute; right: -60px; top: -60px; width: 260px; height: 260px;
-  background: radial-gradient(circle, rgba(199,166,107,0.14), transparent 70%);
+  background: radial-gradient(circle, rgba(72,146,180,0.18), transparent 70%);
 }
 .diag-card .mono { display: block; margin-bottom: 20px; }
 .diag-card h2 {
@@ -254,11 +253,11 @@ h1 em { font-style: italic; color: var(--brass); }
 }
 .diag-form textarea { resize: vertical; min-height: 108px; }
 .diag-form input::placeholder,
-.diag-form textarea::placeholder { color: #5F6B7C; }
+.diag-form textarea::placeholder { color: #5C6D7E; }
 .diag-form input:focus,
 .diag-form textarea:focus {
   outline: none;
-  border-color: var(--brass);
+  border-color: var(--steel);
   background: var(--ink-2);
 }
 .diag-form input:-webkit-autofill {
@@ -267,7 +266,7 @@ h1 em { font-style: italic; color: var(--brass); }
 }
 
 .captcha-box {
-  background: rgba(14,17,22,0.6);
+  background: rgba(13,20,27,0.6);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
@@ -291,14 +290,14 @@ h1 em { font-style: italic; color: var(--brass); }
   font-family: 'IBM Plex Sans', sans-serif;
 }
 .btn-submit:disabled {
-  opacity: 0.55; cursor: not-allowed; transform: none; background: var(--brass);
+  opacity: 0.55; cursor: not-allowed; transform: none; background: linear-gradient(135deg, #207296, var(--blue-deep));
 }
 
 .form-status {
   font-family: 'IBM Plex Mono', monospace; font-size: 0.76rem;
   letter-spacing: 0.04em; min-height: 1em;
 }
-.form-status.ok { color: var(--brass); }
+.form-status.ok { color: var(--steel); }
 .form-status.err { color: #D4796B; }
 
 .diag-card .diag-note { margin-top: 24px; }
@@ -306,7 +305,13 @@ h1 em { font-style: italic; color: var(--brass); }
 /* ---------- FOOTER ---------- */
 footer { border-top: 1px solid var(--line); padding: 44px 0; }
 footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-footer .brand { font-size: 1rem; }
+footer .brand { gap: 18px; line-height: 1; }
+footer .brand img { height: 22px; }
+footer .tagline {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--fog);
+}
+@media (max-width: 560px) { footer .tagline { display: none; } }
 footer .foot-note { font-size: 0.8rem; color: var(--fog); font-family: 'IBM Plex Mono', monospace; }
 
 /* reveal */
