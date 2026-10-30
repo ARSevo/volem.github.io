@@ -171,26 +171,39 @@ h1 em { font-style: italic; color: var(--sky); }
 .pillars-sec { background: var(--ink-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 @media (max-width: 760px) { .pillars { grid-template-columns: 1fr; } }
-.pillar {
+.pillar, .practice {
   background: var(--ink); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 40px 36px; position: relative; overflow: hidden;
 }
-.pillar .num {
+.pillar .num, .practice .num {
   font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
   color: var(--steel); letter-spacing: 0.15em; margin-bottom: 22px; display: block;
 }
-.pillar h3 {
+.pillar h3, .practice h3 {
   font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.55rem;
   line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.01em;
 }
-.pillar p { color: var(--fog-2); font-size: 1rem; margin-bottom: 22px; line-height: 1.6; }
-.pillar ul { list-style: none; display: grid; gap: 10px; }
-.pillar li {
+.pillar p, .practice p { color: var(--fog-2); font-size: 1rem; margin-bottom: 22px; line-height: 1.6; }
+.pillar ul, .practice ul { list-style: none; display: grid; gap: 10px; }
+.pillar li, .practice li {
   font-size: 0.92rem; color: var(--fog); padding-left: 20px; position: relative;
 }
-.pillar li::before {
+.pillar li::before, .practice li::before {
   content: "—"; position: absolute; left: 0; color: var(--blue);
 }
+
+/* ---------- PRACTICES ---------- */
+.practices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 960px) { .practices { grid-template-columns: 1fr; } }
+.practice { background: var(--ink-2); padding: 36px 30px; transition: border-color 0.25s; }
+.practice:hover { border-color: var(--blue-deep); }
+.practice h3 { font-size: 1.4rem; }
+.practices-note {
+  margin-top: 32px; max-width: 72ch; font-size: 0.84rem; color: var(--fog);
+  font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em; line-height: 1.6;
+}
+
+.practices-sec + .sec { border-top: 1px solid var(--line); }
 
 /* ---------- CREDIBILITY ---------- */
 .cred .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
@@ -239,6 +252,7 @@ h1 em { font-style: italic; color: var(--sky); }
   color: var(--fog);
 }
 .diag-form input,
+.diag-form select,
 .diag-form textarea {
   width: 100%;
   background: var(--ink);
@@ -255,11 +269,20 @@ h1 em { font-style: italic; color: var(--sky); }
 .diag-form input::placeholder,
 .diag-form textarea::placeholder { color: #5C6D7E; }
 .diag-form input:focus,
+.diag-form select:focus,
 .diag-form textarea:focus {
   outline: none;
   border-color: var(--steel);
   background: var(--ink-2);
 }
+.diag-form select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 38px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--steel) 50%), linear-gradient(135deg, var(--steel) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
+  background-size: 5px 5px; background-repeat: no-repeat;
+}
+.diag-form select:invalid { color: #5C6D7E; }
+.diag-form select option { color: var(--paper); background: var(--ink); }
 .diag-form input:-webkit-autofill {
   -webkit-text-fill-color: var(--paper);
   -webkit-box-shadow: 0 0 0 1000px var(--ink) inset;
